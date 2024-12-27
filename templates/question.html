@@ -1,7 +1,7 @@
-{% extends 'basr.html'%}
+{% extends 'base.html'%}
 
 {% block content %}
-    <h1>{{ quesiton.question }}</h1>
+    <h1>{{ question.question }}</h1>
     <form action="/answer" methods="POST">
         {% for choice in question.choices %}
         <p><input type="radio" name="answer" value="{{ choice }}"> {{ choice }}</p>

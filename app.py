@@ -15,7 +15,7 @@ debug = DebugToolbarExtension(app)
 def enable_survey_start():
     """Form is shown for the user to pick a survey to complete"""
 
-    return render_template('start_survey.html')
+    return render_template('start_survey.html', survey=survey)
 
 @app.route('/start', methods=["POST"])
 def start_survey():
@@ -23,7 +23,7 @@ def start_survey():
 
     session[RESPONSE_KEY] = []
 
-    return redirect('/question/0')
+    return redirect('/questions/0')
 
 @app.route('/answer', methods=["POST"])
 def handle_question():
@@ -58,7 +58,7 @@ def show_quesition(qid):
         flash(f"Invalid Question ID: {qid}")
         return redirect(f"/questions/{len(responses)}")
     
-    question = survey.question[qid]
+    question = survey.questions[qid]
 
     return render_template('question.html', question_num=qid, question=question)
 
