@@ -1,0 +1,12 @@
+{% extends 'basr.html'%}
+
+{% block content %}
+    <h1>{{ quesiton.question }}</h1>
+    <form action="/answer" method="POST">
+        {% for choice in question.choices %}
+        <p><input type="radio" name="answer" value="{{ choice }}"> {{ choice }}</p>
+        {% endfor %}
+        </select>
+        <button>Contiue</button>
+    </form>
+{% endblock %}
