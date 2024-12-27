@@ -6,9 +6,6 @@
     <title>Flask Survey</title>
 </head>
 <body>
-    {% for msg in get_flashed_message() %}
-        <p>{{ msg }}</p>
-    {% endfor %}
     {% block content %}
     {% endblock %}
 </body>

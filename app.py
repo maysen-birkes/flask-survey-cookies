@@ -1,4 +1,4 @@
-from flask import Flask, session, request, render_template, redirect, make_response, flash
+from flask import Flask, request, render_template, redirect, flash, session
 from flask_debugtoolbar import DebugToolbarExtension
 from surveys import satisfaction_survey as survey
 
@@ -17,7 +17,7 @@ def enable_survey_start():
 
     return render_template('start_survey.html')
 
-@app.route('/start', method=["POST"])
+@app.route('/start', methods=["POST"])
 def start_survey():
     """Clear the session and of survey responses"""
 
@@ -25,7 +25,7 @@ def start_survey():
 
     return redirect('/question/0')
 
-@app.route('/answer', method=["POST"])
+@app.route('/answer', methods=["POST"])
 def handle_question():
     """Save the users response and move to next question"""
 
